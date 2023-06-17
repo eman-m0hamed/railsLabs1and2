@@ -1,0 +1,30 @@
+
+<% if notice %>
+  <p class="alert alert-success" role="alert"><%= notice %></p>
+<% end %>
+<h1>Tracks</h1>
+<%= link_to "New Track", new_track_path %>
+
+<div id="tracks">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @tracks.each do |track| %>
+        <tr>
+          <td><%= track.name %></td>
+          <td><%= track.description %></td>
+          <td><%= link_to "Show", track %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+
+

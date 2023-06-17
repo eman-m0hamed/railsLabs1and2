@@ -1,0 +1,22 @@
+<% if notice %>
+  <p class="alert alert-success" role="alert"><%= notice %></p>
+<% end %>
+<h1>User Register</h1>
+
+<%= render "form", user: @user %>
+
+<br>
+
+<div>
+  <%
+=begin%>
+ <%= link_to "Back to users", users_path %>
+<%
+=end%>
+  <%= link_to "Go to login", login_path %>
+</div>
+
+
+
+
+

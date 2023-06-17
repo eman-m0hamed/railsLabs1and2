@@ -1,0 +1,19 @@
+
+<% if notice %>
+  <p class="alert alert-success" role="alert"><%= notice %></p>
+<% end %>
+
+<h1>Track Data</h1>
+
+<p class="fs-5 fw-bold"> <span class="fs-4 fst-italic text-primary">Name: </span> <%= @track.name %> </p>
+<p class="fs-5 fw-bold"> <span class="fs-4 fst-italic text-primary">Description: </span> <%= @track.description %> </p>
+
+<div class="d-flex">
+  <p class="me-1"> <%= link_to "Edit this track", edit_track_path(@track) %> |</p>
+  <p> <%= link_to "Back to tracks", tracks_path %> |  </p>
+  <%= button_to "Destroy this track", @track, class: "border border-0 bg-transparent text-primary text-decoration-underline" , method: :delete %>
+</div>
+
+
+
+

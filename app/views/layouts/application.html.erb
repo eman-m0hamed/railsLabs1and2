@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Lab4</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+    <%= stylesheet_link_tag 'application', 'https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css' %>
+    <%= javascript_include_tag 'application', 'https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js' %>
+  </head>
+
+  <body>
+
+
+    <nav class="navbar navbar-expand-lg bg-light">
+      <div class="container">
+        <a class="navbar-brand" href="#">Welcome</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Students
+              </a>
+              <ul class="dropdown-menu">
+                <li> <%= link_to "All Students", students_path, class: "dropdown-item" %></li>
+                <li> <%= link_to "Add Student", new_student_path, class: "dropdown-item" %></li>
+
+              </ul>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Tracks
+              </a>
+              <ul class="dropdown-menu">
+                <li> <%= link_to "All Tracks", tracks_path, class: "dropdown-item" %></li>
+                <li> <%= link_to "Add Track", new_track_path, class: "dropdown-item" %></li>
+
+              </ul>
+            </li>
+
+            <% if session[:user_id] %>
+              <li class="d-flex align-items-center"> <%= button_to "Logout", logout_path, class: "border border-0 bg-transparent", method: :delete %> </li>
+            <% else %>
+              <li> <%= link_to "Login", login_path, class: "nav-link" %> </li>
+
+              <li> <%= link_to "Register", register_path, class: "nav-link" %> </li>
+            <% end %>
+
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <section class="container mt-4">
+      <%= yield %>
+    </section>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+<% if notice %>
+  <p class="alert alert-danger" role="alert"><%= notice %></p>
+<% end %>
+<h1>User Login</h1>
+
+<%= form_tag login_path do %>
+
+  <div class="mb-3">
+    <%= label_tag :email , nil , class: "form-label" %>
+    <%= email_field_tag :email , nil, class: "form-control w-50" , placeholder: "User Email" %>
+  </div>
+
+  <!-- password label and input -->
+  <div class="mb-3">
+    <%= label_tag :password , nil , class: "form-label" %>
+    <%= password_field_tag :password , nil, class: "form-control w-50" , placeholder: "User Password" %>
+  </div>
+  <!-- submit button -->
+  <%= submit_tag "Login" , class: "btn btn-primary mt-4" %>
+
+  <%= link_to "Doesn't have account !!", register_path, class: "mt-4 d-block" %>
+<% end %>

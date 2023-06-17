@@ -1,0 +1,31 @@
+<%= form_with(model: track) do |form| %>
+
+  <!-- name label and input -->
+  <div class="mb-3">
+    <%= form.label :name, class: "form-label " %>
+    <%= form.text_field :name , class: "form-control w-50 #{'is-invalid' if @track.errors[:name].any?}" , placeholder: "Track Name" %>
+    <!-- name error div -->
+    <% if @track.errors[:name].any? %>
+      <div class="invalid-feedback d-block">
+        <%= @track.errors[:name].first %>
+      </div>
+    <% end %>
+  </div>
+
+  <!-- description label and input -->
+  <div class="mb-3">
+    <%= form.label :description, class: "form-label" %>
+    <%= form.text_area :description , class: "form-control w-50 #{'is-invalid' if @track.errors[:description].any?}" , placeholder: "Track Description", rows: "5" %>
+    <!-- description error div -->
+    <% if @track.errors[:description].any? %>
+      <div class="invalid-feedback d-block">
+        <%= @track.errors[:description].first %>
+      </div>
+    <% end %>
+  </div>
+
+  <!-- submit button -->
+    <div>
+      <%= form.submit class: "btn btn-primary mt-4" %>
+    </div>
+<% end %>

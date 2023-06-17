@@ -1,0 +1,61 @@
+
+<%= form_with(model: student) do |form| %>
+  <!-- name label and input -->
+  <div class="mb-3">
+    <%= form.label :name , class: "form-label" %>
+    <%= form.text_field :name , class: "form-control w-50 #{'is-invalid' if @student.errors[:name].any?}" , placeholder: "Student Name" %>
+    <!-- name error div -->
+    <% if @student.errors[:name].any? %>
+      <div class="invalid-feedback d-block">
+        <%= @student.errors[:name].first %>
+      </div>
+    <% end %>
+  </div>
+
+
+  <!-- age label and input -->
+  <div class="mb-3">
+    <%= form.label :age , class: "form-label" %>
+    <%= form.number_field :age , class: "form-control w-50 #{'is-invalid' if @student.errors[:age].any?}" , placeholder: "Student Age" %>
+    <!-- age error div -->
+    <% if @student.errors[:age].any? %>
+      <div class="invalid-feedback d-block">
+        <%= @student.errors[:age].first %>
+      </div>
+    <% end %>
+  </div>
+
+
+  <!-- IDno label and input -->
+  <div class="mb-3">
+    <%= form.label :IDno , class: "form-label" %>
+    <%= form.number_field :IDno , class: "form-control w-50 #{'is-invalid' if @student.errors[:IDno].any?}" , placeholder: "Student IDno" %>
+    <!-- IDno error div -->
+    <% if @student.errors[:IDno].any? %>
+      <div class="invalid-feedback d-block">
+        <%= @student.errors[:IDno].first %>
+      </div>
+    <% end %>
+  </div>
+
+
+  <!-- track id label and input -->
+  <div class="mb-3">
+    <%= form.label :tracks_id , class: "form-label" %>
+    <%= form.collection_select(:tracks_id, Track.all, :id, :name, {prompt: true}, {class: "form-select w-50  #{'is-invalid' if @student.errors[:track].any?}"}) %>
+    <!-- track id error div -->
+    <% if @student.errors[:track].any? %>
+      <div class="invalid-feedback d-block">
+        <%= @student.errors[:track].first %>
+      </div>
+    <% end %>
+  </div>
+
+
+  <!-- submit button -->
+  <div>
+    <%= form.submit class: "btn btn-primary mt-4" %>
+  </div>
+
+<% end %>
+
