@@ -40,7 +40,14 @@
 
 
   <!-- track id label and input -->
-  <div class="mb-3">
+   <div>
+   <%= form.label :tracks_id , class: "form-label" %>
+    <%= form.collection_select(:tracks_id, Track.all, :id, :name, {prompt: true}, {class: "form-select w-50  #{'is-invalid' if @student.errors[:track].any?}"}) %>
+    <!-- track id error div -->
+  </div>
+  <%
+=begin%>
+ <div class="mb-3">
     <%= form.label :tracks_id , class: "form-label" %>
     <%= form.collection_select(:tracks_id, Track.all, :id, :name, {prompt: true}, {class: "form-select w-50  #{'is-invalid' if @student.errors[:track].any?}"}) %>
     <!-- track id error div -->
@@ -50,6 +57,8 @@
       </div>
     <% end %>
   </div>
+<%
+=end%>
 
 
   <!-- submit button -->

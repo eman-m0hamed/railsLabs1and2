@@ -3,7 +3,10 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.2.2"
 
-# bcrypt 
+# bootstrap
+gem 'bootstrap', '~> 5.0.2'
+
+# bcrypt
 gem 'bcrypt'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
